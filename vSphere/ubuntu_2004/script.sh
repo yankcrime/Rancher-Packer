@@ -1,6 +1,14 @@
+export DEBIAN_FRONTEND=noninteractive
+
 # Apply updates and cleanup Apt cache
 #
 apt-get update ; apt-get -y dist-upgrade
+apt-get install -y python3-pip
+
+# Install cloud-init datasource for VMware GuestInfo
+#
+curl -sSL https://raw.githubusercontent.com/vmware/cloud-init-vmware-guestinfo/master/install.sh | sh -
+
 apt-get -y autoremove
 apt-get -y clean
 
